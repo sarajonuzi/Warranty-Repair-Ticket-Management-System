@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warranty & Repair Ticket Management System</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Service Desk</p>
+        <h1>Warranty & Repair Ticket Management System</h1>
+      </div>
+      <div class="topbar-actions">
+        <span id="userBadge" class="user-badge"></span>
+        <a class="docs-link hidden" id="usersLink" href="/users.html">Users</a>
+        <a class="docs-link" href="/api-docs" target="_blank" rel="noreferrer">Swagger API</a>
+        <button class="logout-button" id="logoutButton" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel form-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Ticket Form</p>
+            <h2 id="formTitle">Create Ticket</h2>
+          </div>
+          <button class="ghost hidden" id="cancelEditButton" type="button">Cancel Edit</button>
+        </div>
+
+        <form id="ticketForm" novalidate>
+          <input type="hidden" id="ticketId" />
+
+          <label>
+            Customer Name
+            <input id="customerName" name="customerName" minlength="2" required />
+          </label>
+
+          <label>
+            Customer Phone
+            <input id="customerPhone" name="customerPhone" placeholder="+90 555 123 4567" required />
+          </label>
+
+          <label>
+            Product Name
+            <input id="productName" name="productName" required />
+          </label>
+
+          <div class="field-grid">
+            <label>
+              Category
+              <select id="productCategory" name="productCategory" required>
+                <option value="">Select</option>
+                <option>Laptop</option>
+                <option>Phone</option>
+                <option>Tablet</option>
+                <option>Home Appliance</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <label>
+              Priority
+              <select id="priority" name="priority" required>
+                <option>Low</option>
+                <option selected>Medium</option>
+                <option>High</option>
+                <option>Urgent</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Serial Number
+            <input id="serialNumber" name="serialNumber" required />
+          </label>
+
+          <div class="field-grid">
+            <label>
+              Purchase Date
+              <input id="purchaseDate" name="purchaseDate" type="date" required />
+            </label>
+
+            <label>
+              Status
+              <select id="status" name="status" required>
+                <option>Received</option>
+                <option>In Repair</option>
+                <option>Waiting Part</option>
+                <option>Completed</option>
+                <option>Delivered</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            Technician
+            <select id="technicianId" name="technicianId">
+              <option value="">Unassigned</option>
+            </select>
+          </label>
+
+          <label>
+            Issue Description
+            <textarea id="issueDescription" name="issueDescription" rows="4" required></textarea>
+          </label>
+
+          <p class="form-error" id="formError" role="alert"></p>
+          <button class="primary" type="submit">Save Ticket</button>
+        </form>
+      </section>
+
+      <section class="content">
+        <div class="metrics-grid" id="metricsGrid"></div>
+
+        <div class="toolbar">
+          <label class="search">
+            Search
+            <input id="searchInput" placeholder="Customer, product, serial number" />
+          </label>
+
+          <label>
+            Status
+            <select id="statusFilter">
+              <option value="">All</option>
+              <option>Received</option>
+              <option>In Repair</option>
+              <option>Waiting Part</option>
+              <option>Completed</option>
+              <option>Delivered</option>
+            </select>
+          </label>
+
+          <label>
+            Priority
+            <select id="priorityFilter">
+              <option value="">All</option>
+              <option>Low</option>
+              <option>Medium</option>
+              <option>High</option>
+              <option>Urgent</option>
+            </select>
+          </label>
+
+          <label class="hidden" id="ownerFilterWrap">
+            Owner
+            <select id="ownerFilter">
+              <option value="">All Users</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="summary" id="summary"></div>
+        <div class="ticket-list" id="ticketList"></div>
+      </section>
+    </main>
+
+    <dialog class="ticket-modal" id="ticketModal">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow">Ticket Details</p>
+          <h2 id="modalTitle"></h2>
+        </div>
+        <button class="icon-button" id="closeModalButton" type="button" aria-label="Close details">x</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </dialog>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

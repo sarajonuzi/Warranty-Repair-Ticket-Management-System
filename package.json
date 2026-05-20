@@ -1,0 +1,28 @@
+{
+  "name": "warranty-repair-ticket-management-system",
+  "version": "1.0.0",
+  "description": "A full-stack warranty and repair ticket management system for a System Analysis and Design course project.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test tests"
+  },
+  "keywords": [
+    "express",
+    "json-database",
+    "swagger",
+    "crud",
+    "repair-ticket"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}

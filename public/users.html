@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users - Warranty & Repair Ticket Management System</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Admin Panel</p>
+        <h1>User Management</h1>
+      </div>
+      <div class="topbar-actions">
+        <span id="userBadge" class="user-badge"></span>
+        <a class="docs-link" href="/">Tickets</a>
+        <a class="docs-link" href="/api-docs" target="_blank" rel="noreferrer">Swagger API</a>
+        <button class="logout-button" id="logoutButton" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main class="admin-layout">
+      <section class="panel admin-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Access Control</p>
+            <h2>System Users</h2>
+          </div>
+        </div>
+        <p class="admin-note">
+          Admin users can view and manage all tickets. Normal users can only view and manage their own tickets.
+        </p>
+        <p class="form-error" id="usersError" role="alert"></p>
+        <div class="users-list" id="usersList"></div>
+      </section>
+    </main>
+
+    <script src="/users.js"></script>
+  </body>
+</html>
